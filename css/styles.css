@@ -683,7 +683,7 @@ margin-bottom: 72px;
 
 .email-form {
     display: flex;
-    column-gap: 24px;
+    gap: 24px;
 }
 
 .email-input {
@@ -694,20 +694,17 @@ margin-bottom: 72px;
     background-color: transparent;
     padding-left: 16px;
     outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
     
     font-weight: 400;
     font-size: 12px;
-    line-height: 200%;
+    line-height: 2;
     letter-spacing: 0.04em;
     color: #FFFFFF;
 }
 
 .email-input::placeholder {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 200%;
-    letter-spacing: 0.04em;
     color: #FFFFFF;
 }
 
@@ -724,17 +721,16 @@ margin-bottom: 72px;
     border-radius: 4px;
     padding: 8px 24px;
     min-width: 165px;
-    max-height: 40px;
+    height: 40px;
     background-color: #4D5AE5;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    flex-direction: row;
+   
 
-    
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
@@ -751,6 +747,7 @@ margin-bottom: 72px;
 }
 
 .button-footer-icon {
+    margin-left: 16px;
     fill: #fcfcfc;
 }
 
@@ -762,14 +759,13 @@ margin-bottom: 72px;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
+    
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
 
-    opacity: 0;
-    pointer-events: none;
+    /*opacity: 0;
+    pointer-events: none;*/
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -779,36 +775,41 @@ margin-bottom: 72px;
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 408px;
-    height: 584px;
-    border: none;
+    min-height: 584px;
     border-radius: 4px;
     background-color: #fcfcfc;
-    height: 80%;
-    max-height: 584px;
-    overflow: auto;
-    padding-top: 72px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-bottom: 24px;
-    position: relative;
+    padding: 72px 24px 24px 24px;
+    
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
 }
 
 
 .modal-close-btn {
-    width: 24px;
-    height: 24px;
-    background-color: #e7e9fc;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
-    padding: 0;
-    line-height: 0;
     position: absolute;
     top: 24px;
     right: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7e9fc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
     stroke: #2E2F42;
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn:hover,
@@ -834,6 +835,7 @@ margin-bottom: 72px;
     text-align: center;
     letter-spacing: 0.02em;
     margin-bottom: 16px;
+    color: #2E2F42;
 }
 
 .modal-label {
@@ -851,7 +853,7 @@ margin-bottom: 72px;
     height: 40px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    background-color: transparent;
+    outline: transparent;
     padding-left: 38px;
     
    
@@ -890,7 +892,7 @@ margin-bottom: 72px;
     height: 120px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    background-color: transparent;
+    outline: transparent;
     resize: none;
     padding: 8px 16px;
      
@@ -898,7 +900,7 @@ margin-bottom: 72px;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
-    color: #2E2F42;
+    color: rgba(46, 47, 66, 0.4);
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -922,12 +924,14 @@ outline: none;
     cursor: pointer;
     fill: transparent;
     margin-right: 8px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox:checked + .form-checkbox > .span-checkbox {
 border-color: #404BBF;
 background-color: #404BBF;
 fill: #F4F4FD;
+border: none;
 }
 
 .checkbox:focus + .form-checkbox > .span-checkbox {
@@ -950,13 +954,13 @@ border-color: #4D5AE5;
 }
 
 .modal-checkbox {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .button-send {
     border-radius: 4px;
     padding: 16px 32px;
-    width: 169px;
+    min-width: 169px;
     height: 56px;
     border: none;
     background-color: #4D5AE5;
